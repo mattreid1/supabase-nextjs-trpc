@@ -10,7 +10,6 @@ import { TRPCError, initTRPC } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
-import { db } from "@/server/db";
 import { createServerClient } from "@/utils/supabase/server";
 
 /**
@@ -34,7 +33,6 @@ export const createTRPCContext = async (opts: { headers: Headers }) => {
   // NOTE: you can query a `user` table here if you want to based on the supabase email
 
   return {
-    db,
     user,
     ...opts,
   };
